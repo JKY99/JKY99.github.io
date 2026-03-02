@@ -560,11 +560,24 @@
           <mark>Java 1.8</mark> <mark>Spring 4.3</mark> <mark>Spring MVC</mark>
           <mark>MyBatis</mark> <mark>Oracle</mark> <mark>JEUS8</mark>
         </div>
-        <ul>
-          <li><strong>파일 업로드 차단 환경 대응</strong> — Summernote 이미지를 Base64로 인코딩하여 DB 저장·렌더링, 보안 정책 준수</li>
-          <li><strong>커스텀 인증 설계</strong> — Spring Security <code>AuthenticationProvider</code> 확장으로 병원 자체 인증 로직 구현</li>
-          <li><strong>회원가입 보안 강화</strong> — 비밀번호 유효성을 클라이언트·서버 이중 검증하여 취약 계정 생성 방지</li>
-        </ul>
+        <details>
+          <summary>파일 업로드 차단 환경 대응</summary>
+          <div class="details-content">
+            <p>Summernote 이미지를 Base64로 인코딩하여 DB 저장·렌더링, 보안 정책 준수</p>
+          </div>
+        </details>
+        <details>
+          <summary>커스텀 인증 설계</summary>
+          <div class="details-content">
+            <p>Spring Security <code>AuthenticationProvider</code> 확장으로 병원 자체 인증 로직 구현</p>
+          </div>
+        </details>
+        <details>
+          <summary>회원가입 보안 강화</summary>
+          <div class="details-content">
+            <p>비밀번호 유효성을 클라이언트·서버 이중 검증하여 취약 계정 생성 방지</p>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -647,10 +660,18 @@
           <mark>Java 17</mark> <mark>Spring Boot 3.2</mark> <mark>JPA</mark>
           <mark>MariaDB</mark> <mark>Spring Security</mark> <mark>OAuth2</mark> <mark>Docker</mark>
         </div>
-        <ul>
-          <li><strong>무차별 대입 방어</strong> — 4자리 비밀번호 취약점에 5회 실패 시 10분 차단 정책 구현</li>
-          <li><strong>토큰 기반 인가 설계</strong> — 비회원 리뷰 비밀번호 검증 후 JWT 발급으로 비회원 인가 플로우 설계·구현</li>
-        </ul>
+        <details>
+          <summary>무차별 대입 방어</summary>
+          <div class="details-content">
+            <p>4자리 비밀번호 취약점에 5회 실패 시 10분 차단 정책 구현</p>
+          </div>
+        </details>
+        <details>
+          <summary>토큰 기반 인가 설계</summary>
+          <div class="details-content">
+            <p>비회원 리뷰 비밀번호 검증 후 JWT 발급으로 비회원 인가 플로우 설계·구현</p>
+          </div>
+        </details>
       </div>
     </div>
 
