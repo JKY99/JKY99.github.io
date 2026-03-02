@@ -376,8 +376,8 @@
         </p>
         <p>
           단순 기능 구현보다 <strong>구조적 원인을 파악하고 근본적으로 해결</strong>하는 것을 중요하게 생각합니다.
-          배치 처리 N+1 병목을 DB 프로시저로 전환하거나, APK 디컴파일로 소스가 없는 레거시를 이식하는 등
-          제약 조건 속에서 실용적인 판단을 내려왔습니다.
+          ORM 병목을 DB 프로시저로 전환하거나, 독립 조회를 <mark>CompletableFuture</mark>로 병렬화하는 등
+          기술적 근거를 갖춘 의사결정을 해왔습니다.
         </p>
 
         <table class="key-table">
@@ -410,11 +410,6 @@
       <div>
         <div class="stat-value">5<span style="font-size:1.6rem;font-weight:300;">건</span></div>
         <div class="stat-label">Projects</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div>
-        <div class="stat-value">87<span style="font-size:1.6rem;font-weight:300;">%</span></div>
-        <div class="stat-label">최고 API 성능 개선율</div>
       </div>
     </div>
   </div>
