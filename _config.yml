@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "장관영"
   avatar           : "/assets/images/profile.jpg"  # 프로필 사진 경로 (IMAGE_GUIDE.md 참고)
-  bio              : "Java Backend Developer<br>Spring Boot · JPA · Oracle<br>성능 최적화, 레거시 전환, 보안 설계"
+  bio              : "Java Backend Developer<br>Spring Boot, JPA, Oracle<br>성능 최적화, 레거시 전환, 보안 설계"
   location         : "서울 송파구"
   email            : "jkypch@gmail.com"
   links:
