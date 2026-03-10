@@ -451,13 +451,13 @@
         </details>
 
         <details>
-          <summary>FCM 발송 트랜잭션 과확대 → 발송 단위 분리</summary>
+          <summary>FCM 상태 역전 해결 → 발송 단위 트랜잭션 분리</summary>
           <div class="details-content">
-            <p>FCM 다건 발송을 하나의 트랜잭션으로 묶어, 1건 실패 시 전체 롤백되어 이미 발송된 알림과 DB 상태가 불일치하는 문제가 발생했습니다.</p>
+            <p>다중 발송을 단일 트랜잭션으로 처리하는 중 클라이언트 콜백이 트랜잭션 커밋보다 선행하여 상태 역전이 발생했습니다.</p>
             <ul>
-              <li>외부 서비스(FCM) 호출은 롤백 불가이므로 트랜잭션 경계를 발송 단위로 축소</li>
-              <li>건별 트랜잭션으로 분리, 각 발송 결과를 로그 테이블에 적재</li>
-              <li><strong>결과:</strong> 발송 실패 시에도 성공 건의 상태 정합성 유지, 실패 건 재처리 체계 확보</li>
+              <li>발송 단위로 트랜잭션을 분리하고, 상태 전이 제어를 추가하여 역전 방지</li>
+              <li>각 발송 결과를 로그 테이블에 적재, 실패 건 재처리 체계 확보</li>
+              <li><strong>결과:</strong> 상태 정합성 유지, 발송 실패 시에도 성공 건 영향 없음</li>
             </ul>
           </div>
         </details>
@@ -479,6 +479,15 @@
             <ul>
               <li>운영/개발/고도화 3개 팀이 동시에 같은 코드베이스에서 작업하는 환경</li>
               <li><code>main(운영) / dev(개발) / prj(고도화)</code> 브랜치 전략 기반 Jenkins 자동 배포 연계</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>성능 사전 검증</summary>
+          <div class="details-content">
+            <ul>
+              <li>테스트 단계에서 API 레이턴시 측정, 풀스캔/인덱스 부재 쿼리 사전 제거</li>
             </ul>
           </div>
         </details>
@@ -599,7 +608,7 @@
         <h4>오토벨 수출플랫폼 고도화</h4>
         <div class="tech-tags">
           <mark>Java 1.8</mark> <mark>Spring Boot</mark> <mark>JPA</mark> <mark>QueryDSL</mark>
-          <mark>Oracle</mark> <mark>Redis</mark> <mark>Nginx</mark>
+          <mark>Oracle</mark> <mark>Redis</mark> <mark>Nginx</mark> <mark>Jenkins</mark>
         </div>
         <p>
           인천수출센터 해외 수출 프로세스 디지털화 및 플랫폼 전반 고도화.
@@ -623,7 +632,7 @@
             <p>도메인별 DB 조회 6건을 순차 실행하여 응답 시간이 3초에 달했습니다.</p>
             <ul>
               <li>6건의 독립 쿼리를 <mark>CompletableFuture</mark>로 병렬 실행 전환</li>
-              <li><strong>결과:</strong> 응답 시간 3초 → 300~400ms (약 87% 개선)</li>
+              <li><strong>결과:</strong> 응답 시간 3초 → 300ms</li>
             </ul>
           </div>
         </details>
@@ -634,6 +643,15 @@
             <ul>
               <li>엔티티 수정 후 후속 QueryDSL 조회 시점에 Auto-flush가 발생하며 지연된 UPDATE 오류 노출</li>
               <li>FlushModeType과 Auto-flush 동작 원리를 분석하여 원인 규명, 팀 전체에 디버깅 가이드 작성 및 공유</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>SMS 운영 Enum 표준화</summary>
+          <div class="details-content">
+            <ul>
+              <li>DB LINK 프로시저 응답 코드를 Enum으로 표준화, 장애 유형별 분석 체계 확보</li>
             </ul>
           </div>
         </details>
