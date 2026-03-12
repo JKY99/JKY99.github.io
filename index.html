@@ -452,7 +452,7 @@
         <details>
           <summary>FCM 상태 역전 해결 → 발송 단위 트랜잭션 분리</summary>
           <div class="details-content">
-            <img src="/img/fcm-state-reversal-placeholder.svg" alt="FCM 상태 역전 시퀀스 다이어그램" style="width:100%; max-width:600px; margin:12px 0;">
+            <!-- <img src="/img/fcm-state-reversal-placeholder.svg" alt="FCM 상태 역전 시퀀스 다이어그램" style="width:100%; max-width:600px; margin:12px 0;"> -->
             <ul>
               <li>FCM 다중 발송을 단일 트랜잭션으로 처리하는 중 클라이언트 콜백이 트랜잭션 커밋보다 선행하여 상태 역전 발생</li>
               <li>발송 단위로 트랜잭션을 분리하고, 상태 전이 제어를 추가하여 역전 방지</li>
